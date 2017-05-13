@@ -1,0 +1,34 @@
+{
+  "name": "@player1os/express-middleware-promise-wrapper",
+  "version": "1.0.0",
+  "description": "A small library that provides a wrapper for express middleware written as a promise",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublish": "babel src --out-dir lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Player1os/node-js-express-middleware-promise-wrapper.git"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "promise",
+    "bluebird"
+  ],
+  "author": "Osama Hassanein <player1os@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Player1os/node-js-express-middleware-promise-wrapper/issues"
+  },
+  "homepage": "https://github.com/Player1os/node-js-express-middleware-promise-wrapper#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-preset-env": "^1.4.0"
+  }
+}

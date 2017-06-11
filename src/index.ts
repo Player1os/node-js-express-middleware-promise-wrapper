@@ -1,8 +1,8 @@
 // Load npm modules.
 import {
+	NextFunction,
 	Request,
 	Response,
-	NextFunction,
 } from 'express'
 
 // Define the passthrough objects.

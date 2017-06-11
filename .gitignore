@@ -4,17 +4,17 @@ build/*
 # Compile generated files.
 .awcache/*
 
-# Config files.
-.env
-pm2.json
-
 # NPM generated files.
 node_modules/*
 npm-debug.log*
+
+# Published files.
+lib/*
 
 # OS specific files.
 .DS_Store
 Thumbs.db
 
-# Runtime generated files.
-output/*
+# Test coverage cache.
+.nyc_output
+coverage

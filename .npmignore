@@ -1,1 +1,16 @@
-/src/
+.awcache/
+.nyc_output/
+.vscode/
+build/
+coverage/
+src/
+test/
+webpack/
+.babelrc
+.editorconfig
+.gitattributes
+.gitignore
+.node-version
+README.md
+tsconfig.json
+tslint.json

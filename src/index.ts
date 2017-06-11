@@ -1,32 +1,33 @@
 // Load npm modules.
-import Promise from 'bluebird'
+import {
+	Request,
+	Response,
+	NextFunction,
+} from 'express'
 
-// Declare the passthrough objects.
-const nextRouteObject = {
-	next_route: true,
-}
+// Define the passthrough objects.
 const nextObject = {
-	next: true,
+	route: {},
 }
 
 // Converts a promise into a callback that is acceptable by express.
 // If any of the special objects is returned as the result of the promise the next function is called.
 // Otherwise no following middleware is executed.
-const factory = (promiseCreator) => {
-	return (req, res, next) => {
-		Promise.resolve(promiseCreator(req, res))
-			.then((result) => {
-				if (result === nextRouteObject) {
-					// If the nextRouteObject was returned, the next middleware
+const factory = (promiseGenerator: (req: Request, res: Response, next: { route: object }) => Promise<void | object>) => {
+	return (req: Request, res: Response, next: NextFunction) => {
+		Promise.resolve(promiseGenerator(req, res, nextObject))
+			.then((result: object) => {
+				if (result === nextObject) {
+					// If the nextObject itself was returned, the next middleware
 					// (passed in the same router call) is executed.
 					process.nextTick(() => {
-						next('route')
+						next()
 					})
-				} else if (result === nextObject) {
+				} else if (result === nextObject.route) {
 					// If the nextObject was returned, the next middleware
 					// (passed in the following router call) is executed.
 					process.nextTick(() => {
-						next()
+						next('route')
 					})
 				}
 			})
@@ -38,10 +39,6 @@ const factory = (promiseCreator) => {
 			})
 	}
 }
-
-// Append the passthrough objects to the factory function.
-factory.nextRoute = nextRouteObject
-factory.next = nextObject
 
 // Expose the factory function.
 export default factory

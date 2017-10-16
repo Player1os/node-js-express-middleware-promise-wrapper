@@ -1,6 +1,6 @@
 {
   "name": "@player1os/express-utility",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A small library that provides a wrapper for express middleware written as a promise",
   "private": false,
   "main": "index.js",

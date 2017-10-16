@@ -5,6 +5,39 @@ import {
 	Response,
 } from 'express'
 
+// Load node modules.
+import { URL } from 'url'
+
+export const getOriginalUrl = (req: Request) => {
+	return new URL(`${req.protocol}://${req.headers.host}${req.originalUrl}`).toString()
+}
+
+export const getIpAddress = (req: Request) => {
+	// Store the result for the standard and the custom method of retrieving the result.
+	return req.ip && (req.ip !== 'unknown')
+		? req.ip
+		: null
+}
+
+export const getHostname = (req: Request) => {
+	// Store the result for the standard and the custom method of retrieving the result.
+	return req.hostname && (req.hostname !== 'unknown')
+		? req.hostname
+		: null
+}
+
+export const promisifyResponseFinish = async (res: Response) => {
+	return new Promise((resolve) => {
+		if (res.headersSent) {
+			resolve()
+		} else {
+			res.on('finish', () => {
+				resolve()
+			})
+		}
+	})
+}
+
 // Define the passthrough objects.
 const nextObject = {
 	route: {},
@@ -13,7 +46,7 @@ const nextObject = {
 // Converts a promise into a callback that is acceptable by express.
 // If any of the special objects is returned as the result of the promise the next function is called.
 // Otherwise no following middleware is executed.
-const factory = (promiseGenerator: (req: Request, res: Response, next: { route: object }) => Promise<void | object>) => {
+export const promiseWrapper = (promiseGenerator: (req: Request, res: Response, next: { route: object }) => Promise<void | object>) => {
 	return (req: Request, res: Response, next: NextFunction) => {
 		Promise.resolve(promiseGenerator(req, res, nextObject))
 			.then((result: object) => {
@@ -39,6 +72,3 @@ const factory = (promiseGenerator: (req: Request, res: Response, next: { route: 
 			})
 	}
 }
-
-// Expose the factory function.
-export default factory

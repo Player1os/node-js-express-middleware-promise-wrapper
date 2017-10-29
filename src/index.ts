@@ -14,14 +14,14 @@ export const getOriginalUrl = (req: Request) => {
 
 export const getIpAddress = (req: Request) => {
 	// Store the result for the standard and the custom method of retrieving the result.
-	return req.ip && (req.ip !== 'unknown')
+	return (typeof req.ip === 'string') && (req.ip !== '') && (req.ip !== 'unknown')
 		? req.ip
 		: null
 }
 
 export const getHostname = (req: Request) => {
 	// Store the result for the standard and the custom method of retrieving the result.
-	return req.hostname && (req.hostname !== 'unknown')
+	return (typeof req.hostname === 'string') && (req.hostname !== '') && (req.hostname !== 'unknown')
 		? req.hostname
 		: null
 }

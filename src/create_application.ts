@@ -5,11 +5,11 @@ import { IRequest } from '.../src/type/request.i'
 import * as express from 'express'
 
 export default () => {
-	// Initialize the express app.
-	const app = express()
+	// Initialize the express application.
+	const application = express()
 
 	// Initialize the request locals object.
-	app.use((req: IRequest, _res, next) => {
+	application.use((req: IRequest, _res, next) => {
 		// Define the locals property as an object containing the date when the request was recieved.
 		req.locals = {
 			date: new Date(),
@@ -20,5 +20,5 @@ export default () => {
 	})
 
 	// Return the configured.
-	return app as express.Application
+	return application as express.Application
 }

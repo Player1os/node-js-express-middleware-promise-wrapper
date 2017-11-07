@@ -1,5 +1,5 @@
-import app from '.../src/app'
 import { json as jsonBodyParserMiddleware } from '.../src/body_parser_middleware'
+import createApplication from '.../src/create_application'
 import errorMiddleware from '.../src/error_middleware'
 import getHostname from '.../src/get_hostname'
 import getIpAddress from '.../src/get_ip_address'
@@ -15,7 +15,7 @@ import {
 import { IRequest } from '.../src/type/request.i'
 
 export {
-	app,
+	createApplication,
 	errorMiddleware,
 	getHostname,
 	getIpAddress,

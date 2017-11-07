@@ -46,6 +46,7 @@
     "@types/bluebird-global": "^3.5.3",
     "@types/chai": "^4.0.4",
     "@types/express": "^4.0.39",
+    "@types/http-status": "^0.2.30",
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.0.47",
     "chai": "^4.1.2",
@@ -61,6 +62,7 @@
     "extends": "@player1os/nyc-config"
   },
   "dependencies": {
+    "http-status": "^1.0.1",
     "stoppable": "^1.0.4"
   }
 }

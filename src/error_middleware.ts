@@ -10,7 +10,6 @@ export default (callback?: (err: Error, req: Request, res: Response) => void) =>
 	return (err: Error, req: Request, res: Response, _next: NextFunction) => {
 		// Check if the response was already sent.
 		if (!res.headersSent) {
-			// There was an error somewhere during route matching
 			res.status(httpStatus.INTERNAL_SERVER_ERROR).send()
 		}
 

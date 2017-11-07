@@ -4,9 +4,12 @@ import {
 	ErrorRequestHandler,
 	NextFunction,
 	Request,
+	RequestHandler,
 	Response,
 	Router,
 } from 'express'
+
+export { RequestHandler }
 
 export const json = (errorRequestHandler: ErrorRequestHandler) => {
 	// Parse the request payload for the application/json mime type.
@@ -21,4 +24,7 @@ export const json = (errorRequestHandler: ErrorRequestHandler) => {
 			errorRequestHandler(err, req, res, next)
 		}
 	})
+
+	// Return the middleware.
+	return router as RequestHandler
 }

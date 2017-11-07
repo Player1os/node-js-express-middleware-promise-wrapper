@@ -17,7 +17,7 @@ export class HttpServer {
 	protected _server: IPromisifiedHttpServer
 	protected _stop: () => PromiseLike<void>
 
-	public constructor(requestListener: THttpServerRequestListener, timeout = 5000) {
+	public constructor(requestListener: THttpServerRequestListener, timeout: number) {
 		this._server = http.createServer(requestListener) as IPromisifiedHttpServer
 		this._stop = Promise.promisify(stoppable(this._server, timeout).stop)
 	}

@@ -1,3 +1,4 @@
+import app from '.../src/app'
 import { json as jsonBodyParserMiddleware } from '.../src/body_parser_middleware'
 import errorMiddleware from '.../src/error_middleware'
 import getHostname from '.../src/get_hostname'
@@ -11,13 +12,16 @@ import {
 	default as promiseWrapper,
 	promisifyResponseFinish,
 } from '.../src/promise_wrapper'
+import { IRequest } from '.../src/type/request.i'
 
 export {
+	app,
 	errorMiddleware,
 	getHostname,
 	getIpAddress,
 	getOriginalUrl,
 	HttpServer,
+	IRequest,
 	jsonBodyParserMiddleware,
 	promisifyResponseFinish,
 	promiseWrapper,

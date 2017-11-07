@@ -38,6 +38,12 @@
     "url": "https://github.com/Player1os/node-js-express-utility/issues"
   },
   "homepage": "https://github.com/Player1os/node-js-express-utility#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "http-status": "^1.0.1",
+    "stoppable": "^1.0.4"
+  },
   "devDependencies": {
     "@player1os/npm-package-support": "^1.1.9",
     "@player1os/nyc-config": "^1.0.0",
@@ -61,10 +67,5 @@
   },
   "nyc": {
     "extends": "@player1os/nyc-config"
-  },
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "http-status": "^1.0.1",
-    "stoppable": "^1.0.4"
   }
 }

@@ -59,5 +59,8 @@
   },
   "nyc": {
     "extends": "@player1os/nyc-config"
+  },
+  "dependencies": {
+    "stoppable": "^1.0.4"
   }
 }

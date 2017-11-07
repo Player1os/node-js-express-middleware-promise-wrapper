@@ -1,3 +1,4 @@
+import { json as jsonBodyParserMiddleware } from '.../src/body_parser_middleware'
 import errorMiddleware from '.../src/error_middleware'
 import getHostname from '.../src/get_hostname'
 import getIpAddress from '.../src/get_ip_address'
@@ -17,6 +18,7 @@ export {
 	getIpAddress,
 	getOriginalUrl,
 	HttpServer,
+	jsonBodyParserMiddleware,
 	promisifyResponseFinish,
 	promiseWrapper,
 	THttpServerRequestListener,

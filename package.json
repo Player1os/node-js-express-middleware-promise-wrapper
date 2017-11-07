@@ -1,6 +1,6 @@
 {
   "name": "@player1os/express-utility",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "A library that provides functionality on top of the express library",
   "private": false,
   "main": "dist/index.js",

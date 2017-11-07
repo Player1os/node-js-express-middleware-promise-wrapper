@@ -65,6 +65,9 @@
     "tsutils": "^2.12.1",
     "typescript": "^2.5.3"
   },
+  "peerDependencies": {
+    "express": "^4.16.2"
+  },
   "nyc": {
     "extends": "@player1os/nyc-config"
   }
